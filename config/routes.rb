@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get 'projects/show'
+
+  get 'projects/index'
+
+  get 'projects/new'
+
+  get 'projects/edit'
+
   root 'static_pages#home'
 
-  get 'static_pages/about'
-
-  get 'static_pages/projects'
+  get '/about', to: 'static_pages#about', as: :about
+  get '/projects', to: 'static_pages#projects', as: :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
