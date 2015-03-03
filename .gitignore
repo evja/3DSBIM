@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+.DS_store
+
+#ignore the images
+app/assets/Website Resources
+
+app/assets/images
