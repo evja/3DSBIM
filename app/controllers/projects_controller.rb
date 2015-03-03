@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
 
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+
   def show
-    @project = Project.find(params[:id])
   end
 
   def index
@@ -13,10 +14,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.build(project_params)
+    @project = Project.new(project_params)
     if @project.save
       respond_to do |format|
-        format.html redirect_to @project
+        format.html { redirect_to @project }
         format.json
       end
     else
@@ -39,13 +40,17 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project.delete
-    redirect_to @projects
+    @project.destroy
+    redirect_to projects_path
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:name, :desription)
+    params.require(:project).permit(:name, :description)
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
   end
 end
