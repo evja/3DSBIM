@@ -1,4 +1,4 @@
 class Photo < ActiveRecord::Base
-  belongs_to :projects
+  belongs_to :project
   mount_uploader :image, ImageUploader
 end

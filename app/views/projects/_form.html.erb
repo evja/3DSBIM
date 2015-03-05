@@ -1,8 +1,15 @@
 <div class="container">
-  <%= bootstrap_form_for(@project) do |f| %>
+  <%= bootstrap_form_for @project, :html => {multipart: true} do |f| %>
     <%= f.text_field :name %>
     <%= f.text_field :description %>
-    <%= f.file_field :images, multiple: true %>
+
+    <% if @project.photos.any? %>
+      <% @project.photos.each do |photo| %>
+        <%= image_tag(photo.image_url(:thumb)) %>
+      <% end %>
+    <% end %>
+
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
 
     <%= f.submit %>
   <% end %>
