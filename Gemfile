@@ -15,10 +15,13 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap'
-gem 'bootstrap_form'
 gem 'bootstrap-sass'
+gem 'bootstrap_form'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
+gem 'rmagick'
+gem 'carrierwave'
+gem "jquery-fileupload-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

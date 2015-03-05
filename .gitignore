@@ -15,5 +15,5 @@
 
 #ignore the images
 app/assets/Website Resources
-
+public/uploads
 app/assets/images
