@@ -16,11 +16,18 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+      if params[:images]
+        params[:images].each { |image|
+          @project.photos.create(image: image)
+        }
+      end
+      flash[:notice] = "Your project has been created."
       respond_to do |format|
         format.html { redirect_to @project }
         format.json
       end
     else
+      flash[:alert] = "Something went wrong."
       render :new
     end
   end
@@ -29,11 +36,14 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update_attributes(project_params)
-      respond_to do |format|
-        format.html redirect_to @project
-        format.json
+    if @project.update(project_params)
+      if params[:images]
+        params[:images].each { |image|
+          @project.photos.create(image: image)
+        }
       end
+      flash[:notice] = "Album has been updated."
+      redirect_to @project
     else
       render :edit
     end
@@ -47,7 +57,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, :image)
+    params.require(:project).permit(:name, :description)
   end
 
   def set_project
