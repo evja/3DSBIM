@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :projects do
-    resources :photos
-  end
+  resources :projects
+  resources :photos
+
   root 'static_pages#home'
 
   get '/about', to: 'static_pages#about', as: :about
