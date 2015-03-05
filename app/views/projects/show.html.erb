@@ -1,5 +1,18 @@
-<h1><%= @project.name %></h1>
-<%= @project.description %>
+<div class="container">
+  <h1><%= @project.name %></h1>
+  <%= @project.description %>
 
-<%= link_to 'Back', projects_path %>
-<%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete #{@project.name}?" } %>
+  <br/>
+  <%# link_to 'Delete', project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete #{@project.name}?" } %>
+
+  <% @project.photos.each do |photo| %>
+  <div class="col-md-4">
+    <div class="images image-responsive">
+        <%= image_tag photo.image_url.to_s, class: "img img-responsive" %>
+    </div>
+    <%= link_to 'delete', project_photo_path(@project, photo), method: :delete, confirm: "Are You Sure?" %>
+  </div>
+  <% end %>
+  <%= link_to 'Add Photo', new_project_photo_path(@project) %>
+  <%= link_to 'Back', projects_path %>
+</div>
