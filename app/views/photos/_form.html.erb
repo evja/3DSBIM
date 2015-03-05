@@ -1,0 +1,12 @@
+<%= bootstrap_form_for [@project, @photo] do |f| %>
+  <p>
+    <%= f.text_field :name %>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.file_field :images, multiple: true %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<%= link_to 'Back', project_path(@project) %>
