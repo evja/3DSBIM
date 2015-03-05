@@ -1,4 +1,4 @@
 class Project < ActiveRecord::Base
-  has_many :photos
-  mount_uploader :image, ImageUploader
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos, allow_destroy: true
 end
