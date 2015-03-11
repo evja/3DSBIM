@@ -3,14 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #project-item {
-  height: 250px;
-  border: solid black 1px;
+  border-radius: 5px;
 
-  div {
+  #admin-options {
     margin: 2%;
 
-    padding: 4px;
-    border: solid black 2px;
+    padding-top: 4px;
     border-radius: 8px;
     overflow: scroll;
   }
@@ -19,4 +17,5 @@
 .images {
   border: solid black 2px;
   overflow: none;
+  margin: auto;
 }

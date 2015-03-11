@@ -1,2 +1,12 @@
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1000px) {
 
+  #project-item {
+    height: 250px;
+
+    img {
+      height: 200px;
+    }
+  }
+ }
 
